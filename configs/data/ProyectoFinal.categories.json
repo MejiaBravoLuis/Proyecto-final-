@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67bc8cf0307cf90925d0e92c"
+  },
+  "name": "pets (default category) 🐕",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-24T15:14:56.256Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T15:14:56.256Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bca229237262d190b67cd5"
+  },
+  "name": "YUP",
+  "status": false,
+  "createdAt": {
+    "$date": "2025-02-24T16:45:29.622Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T17:12:53.978Z"
+  }
+}]

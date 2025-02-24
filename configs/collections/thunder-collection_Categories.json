@@ -1,0 +1,84 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Categories",
+    "collectionId": "27d1c464-487d-4476-b7ec-3ea23f274025",
+    "dateExported": "2025-02-24T17:32:38.628Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e42124ae-3082-4b9d-99ad-30afded586b5",
+            "colId": "27d1c464-487d-4476-b7ec-3ea23f274025",
+            "containerId": "",
+            "name": "Listar categorias",
+            "url": "http://localhost:3000/ProyectoFinal/v1/category",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-02-24T15:35:58.220Z",
+            "modified": "2025-02-24T15:36:12.898Z",
+            "headers": []
+        },
+        {
+            "_id": "6dbbf8c7-43f9-412f-ac14-de48501698ad",
+            "colId": "27d1c464-487d-4476-b7ec-3ea23f274025",
+            "containerId": "",
+            "name": "Agregar categorias",
+            "url": "http://localhost:3000/ProyectoFinal/v1/category",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-24T16:23:21.068Z",
+            "modified": "2025-02-24T16:45:29.645Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjOGUxMjllMmIyNTlmNGVmZGUxOTciLCJpYXQiOjE3NDA0MTU1MjEsImV4cCI6MTc0MDQxOTEyMX0.817IXqbMDjAuYF3FrAm9X87nGsqJRFYKT8giQWJuZfU"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Home\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d2b0026a-3686-4097-830d-8b0e57df6c0d",
+            "colId": "27d1c464-487d-4476-b7ec-3ea23f274025",
+            "containerId": "",
+            "name": "Editar Categoria",
+            "url": "http://localhost:3000/ProyectoFinal/v1/category/67bca229237262d190b67cd5",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2025-02-24T16:46:09.762Z",
+            "modified": "2025-02-24T17:09:02.976Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjOGUxMjllMmIyNTlmNGVmZGUxOTciLCJpYXQiOjE3NDA0MTU1MjEsImV4cCI6MTc0MDQxOTEyMX0.817IXqbMDjAuYF3FrAm9X87nGsqJRFYKT8giQWJuZfU"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"YUP\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "96eed552-099c-4d25-af1f-cfbaf3ad4746",
+            "colId": "27d1c464-487d-4476-b7ec-3ea23f274025",
+            "containerId": "",
+            "name": "Eliminar categoria",
+            "url": "http://localhost:3000/ProyectoFinal/v1/category/67bca229237262d190b67cd5",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2025-02-24T17:10:37.019Z",
+            "modified": "2025-02-24T17:12:53.983Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjOGUxMjllMmIyNTlmNGVmZGUxOTciLCJpYXQiOjE3NDA0MTU1MjEsImV4cCI6MTc0MDQxOTEyMX0.817IXqbMDjAuYF3FrAm9X87nGsqJRFYKT8giQWJuZfU"
+                }
+            ]
+        }
+    ],
+    "ref": "whURhLNN2pv_6dZS-v2toyBnMiDGeER13MCKcwGtJvZckqjEnIu_IvqJRNvC2IfpsDREkg3IDQHFuc0BUsNL_Q"
+}

@@ -1,0 +1,108 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Auth",
+    "collectionId": "f929f1ff-08d3-469d-9d0d-cc0051ee20f1",
+    "dateExported": "2025-02-24T17:32:20.528Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a9af03fd-b785-4a83-b3da-cc0cdca4fced",
+            "colId": "f929f1ff-08d3-469d-9d0d-cc0051ee20f1",
+            "containerId": "",
+            "name": "Register",
+            "url": "http://localhost:3000/ProyectoFinal/v1/auth/register",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2025-02-24T14:51:07.083Z",
+            "modified": "2025-02-24T14:53:47.367Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Luis Mejia\",\n  \"username\": \"lmejia\",\n  \"email\": \"lmejia@example.com\",\n  \"password\": \"12345678\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "26703503-4b76-498f-94f5-43e5369b709c",
+            "colId": "f929f1ff-08d3-469d-9d0d-cc0051ee20f1",
+            "containerId": "",
+            "name": "Listar usuarios",
+            "url": "http://localhost:3000/ProyectoFinal/v1/users",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-02-24T14:35:06.772Z",
+            "modified": "2025-02-24T14:47:19.010Z",
+            "headers": []
+        },
+        {
+            "_id": "2654ba5a-674b-4f33-9b8a-dae8209ba642",
+            "colId": "f929f1ff-08d3-469d-9d0d-cc0051ee20f1",
+            "containerId": "",
+            "name": "Buscar usuario por id",
+            "url": "http://localhost:3000/ProyectoFinal/v1/users/findUser/67bc8fc39e2b259f4efde1a0",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2025-02-24T14:49:06.627Z",
+            "modified": "2025-02-24T17:26:13.008Z",
+            "headers": []
+        },
+        {
+            "_id": "14733961-33ea-49a0-9b6b-515af44ad529",
+            "colId": "f929f1ff-08d3-469d-9d0d-cc0051ee20f1",
+            "containerId": "",
+            "name": "Editar usuario",
+            "url": "http://localhost:3000/ProyectoFinal/v1/users/update",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2025-02-24T14:49:53.891Z",
+            "modified": "2025-02-24T17:29:46.520Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjOGZjMzllMmIyNTlmNGVmZGUxYTAiLCJpYXQiOjE3NDA0MTUzNjgsImV4cCI6MTc0MDQxODk2OH0.tVv5vVAjgx6YhPeewsheVfody-C15kO_Bn73njBiSNQ"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Luis Mejia\",\n  \"username\": \"lmejia\",\n  \"email\": \"lmejia@example.com\",\n  \"password\": \"123456789\",\n  \"newPassword\": \"12345678\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "2abd0761-8a84-4167-bf4e-5c52170ebff2",
+            "colId": "f929f1ff-08d3-469d-9d0d-cc0051ee20f1",
+            "containerId": "",
+            "name": "Login Admin",
+            "url": "http://localhost:3000/ProyectoFinal/v1/auth/login",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2025-02-24T15:28:29.299Z",
+            "modified": "2025-02-24T15:29:56.554Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3937f555-9859-4425-b732-260c58c95a4a",
+            "colId": "f929f1ff-08d3-469d-9d0d-cc0051ee20f1",
+            "containerId": "",
+            "name": "Login Cliente",
+            "url": "http://localhost:3000/ProyectoFinal/v1/auth/login",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2025-02-24T15:30:49.845Z",
+            "modified": "2025-02-24T17:30:02.326Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"lmejia\",\n  \"password\": \"12345678\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "29dPI_ZTKoRFUtvoV9wlwhsD1-YX-XMonOv_WsY1cpB6usP2L-WoD4wmRtlLVtEwRTSMzsGq6CCbBkPaOeEFOA"
+}

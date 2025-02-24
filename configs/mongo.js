@@ -1,6 +1,9 @@
 'use strict';
 
 import mongoose from "mongoose";
+import Usuario from "../src/users/user.model.js";
+import Category from "../src/category/category.model.js";
+import { hash } from "argon2";
 
 export const dbConnection = async () => {
     try {
@@ -15,6 +18,32 @@ export const dbConnection = async () => {
 
         mongoose.connection.on('connected', async () => {
             console.log('Connected to MongoDB');
+
+            try {
+                const adminExists = await Usuario.findOne({ role: "ADMIN" });
+                if (!adminExists) {
+                    const adminPassword = await hash("admin123"); 
+                    await Usuario.create({
+                        name: "Admin",
+                        surname: "User",
+                        username: "admin",
+                        email: "admin@gmail.com",
+                        password: adminPassword,
+                        role: "ADMIN"
+                    });
+                    console.log("Admin user created 🔐");
+                }
+
+                const defaultCategory = await Category.findOne({ name: "pets (default category) 🐕" });
+                if (!defaultCategory) {
+                    await Category.create({ name: "pets (default category) 🐕" });
+                    console.log("Category 'pets' created 🐕");
+                }
+                
+
+            } catch (error) {
+                console.error("Error verifying/creating admin:", error);
+            }
         });
 
         mongoose.connection.on('open', () => {
