@@ -130,3 +130,61 @@ export const updateUser = async (req, res = response) => {
         });
     }
 };
+
+export const deleteUser = async (req = request, res = response) => {
+    try {
+        if (!req.user) {
+            return res.status(401).json({
+                success: false,
+                msg: " No user found in request"
+            });
+        }
+
+        const { id } = req.params;
+        const authUser = req.user;
+
+        const userToDelete = await User.findById(id);
+        if (!userToDelete) {
+            return res.status(404).json({
+                success: false,
+                msg: "User not found in database"
+            });
+        }
+
+        if (!userToDelete.status) {
+            return res.status(400).json({
+                success: false,
+                msg: "The user has already been deleted"
+            });
+        }
+
+        if (authUser.role === "CLIENT" && authUser._id.toString() !== id) {
+            return res.status(403).json({
+                success: false,
+                msg: "CLIENT users can only delete their own account"
+            });
+        }
+
+        if (authUser.role === "ADMIN" && userToDelete.role !== "CLIENT") {
+            return res.status(403).json({
+                success: false,
+                msg: "ADMIN can only delete users with CLIENT role"
+            });
+        }
+
+        await User.findByIdAndUpdate(id, { status: false });
+
+        res.status(200).json({
+            success: true,
+            msg: "User deleted successfully"
+        });
+
+    } catch (error) {
+        console.error("Error in deleteUser:", error);
+        res.status(500).json({
+            success: false,
+            msg: "Something went wrong trying to delete the user",
+            error: error.message || error
+        });
+    }
+};
