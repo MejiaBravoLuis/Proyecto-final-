@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "cbd9fd61-0548-43d3-ba40-f3ccf7c938b2",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37533644"
+	},
+	"item": [
+		{
+			"name": "Listar usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar user por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/users/findUser/67bc8fc39e2b259f4efde1a0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"users",
+						"findUser",
+						"67bc8fc39e2b259f4efde1a0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2ExOTNiYTQ4Njg1MjcwY2ZkYjEiLCJpYXQiOjE3NDA0OTE4MTQsImV4cCI6MTc0MDQ5NTQxNH0.kT0JhuHsW_SikCPDVfG1KN-11Y-OYuXSmfoW_dBut7c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pedro Bravo\",\r\n    \"username\": \"pbravo\",\r\n    \"password\": \"12345678\",\r\n    \"newPassword\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/users/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"users",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2EwZjNiYTQ4Njg1MjcwY2ZkYWQiLCJpYXQiOjE3NDA0OTM4ODgsImV4cCI6MTc0MDQ5NzQ4OH0.2mDuODbINTLaI6hWEH0RNGyov08_pSqhP1gXEazEpjk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/users/delete/67bdca193ba48685270cfdb1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"users",
+						"delete",
+						"67bdca193ba48685270cfdb1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
