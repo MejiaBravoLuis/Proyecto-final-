@@ -174,3 +174,88 @@ export const searchProductsBy = async (req, res) => {
         });
     }
 };
+
+export const listBestSold = async (req, res) => {
+    try {
+        const { limite = 10 } = req.query;
+
+        const products = await Product.find({ status: true })
+            .sort({ stock: 1 })
+            .limit(Number(limite));
+
+        res.status(200).json({
+            success: true,
+            products
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: "Ups, something went wrong trying to list the best sold prodcuts.",
+            error: error.message
+        });
+    }
+}
+
+export const addStock = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { cant } = req.body;
+
+        if (!cant || isNaN(cant) || cant <= 0) {
+            return res.status(400).json({
+                success: false,
+                msg: "Cant must be > 0"
+            });
+        }
+
+        const product = await Product.findById(id);
+        if (!product) {
+            return res.status(404).json({
+                success: false,
+                msg: "Couldnt find the product"
+            });
+        }
+
+        product.stock += Number(cant);
+        await product.save();
+
+        res.status(200).json({
+            success: true,
+            msg: `Stock updated succesfully. New Stock: ${product.stock}`,
+            product
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: "Ups, something went wrong trying to add stock",
+            error: error.message
+        });
+    }
+};
+
+export const listByCategory = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const categoryExists = await Category.findById(id);
+        if (!categoryExists) {
+            return res.status(400).json({
+                success: false,
+                msg: "Invalid category ID"
+            });
+        }
+
+        const products = await Product.find({ category: id, status: true }).populate("category", "name");
+
+        res.status(200).json({
+            success: true,
+            products
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: "Error fetching products by category.",
+            error: error.message
+        });
+    }
+};

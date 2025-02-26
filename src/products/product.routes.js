@@ -1,11 +1,35 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { addProduct, listProducts, getProductById, updateProduct, deleteProduct, searchProductsBy } from "./product.controller.js";
+import { addProduct, listProducts, getProductById, updateProduct, deleteProduct, searchProductsBy, listBestSold, addStock, listByCategory } from "./product.controller.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 import { tieneRole } from "../middlewares/validar-role.js";
 
 const router = Router();
+router.get(
+    "/bestsold",
+    [
+        validarJWT,
+        validarCampos
+    ],
+    listBestSold
+);
+
+router.put(
+    "/addStock/:id",
+    [
+        validarJWT,
+        check("id", "This id isnt valid").isMongoId(),
+        check("cant", "The stock must be > 0").isNumeric().custom(value => value > 0),
+        validarCampos
+    ],
+    addStock
+);
+
+router.get(
+    "/category/:id", 
+    listByCategory
+);
 
 router.post(
     "/",
@@ -26,7 +50,7 @@ router.get("/", listProducts);
 router.get(
     "/:id",
     [
-        check("id", "No es un ID válido").isMongoId(),
+        check("id", "This id isnt valid").isMongoId(),
         validarCampos
     ],
     getProductById
@@ -37,7 +61,7 @@ router.put(
     [
         validarJWT,
         tieneRole("ADMIN"),
-        check("id", "No es un ID válido").isMongoId(),
+        check("id", "This id isnt valid").isMongoId(),
         validarCampos
     ],
     updateProduct
@@ -57,8 +81,7 @@ router.delete(
 router.get(
     "/search/:query",
     [
-        validarJWT, // Opcional: solo si deseas que la búsqueda requiera autenticación
-        check("query", "La búsqueda no puede estar vacía").notEmpty(),
+        check("query", "Query cant be empty").notEmpty(),
         validarCampos
     ],
     searchProductsBy
