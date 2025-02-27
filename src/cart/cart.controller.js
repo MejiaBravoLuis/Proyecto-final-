@@ -1,6 +1,7 @@
 import { request, response } from "express";
 import Cart from "./cart.model.js";
 import Product from "../products/product.model.js";
+import Bill from "../bill/bill.model.js"
 
 export const addToCart = async (req, res) => {
     try {
@@ -253,6 +254,64 @@ export const updateCart = async (req, res) => {
         res.status(500).json({
             success: false,
             msg: "Something went wrong while updating the cart",
+            error: error.message
+        });
+    }
+};
+
+export const generateBill = async (req, res) => {
+    try {
+        if (!req.user) {
+            return res.status(401).json({
+                success: false,
+                msg: "User is not authenticated"
+            });
+        }
+
+        const userId = req.user._id;
+        const Client = req.user.name;
+
+        // Obtener el carrito activo del usuario
+        const cart = await Cart.findOne({ user: userId, status: "pending" }).populate("products.product");
+
+        if (!cart || cart.products.length === 0) {
+            return res.status(400).json({
+                success: false,
+                msg: "Cart is empty or not found"
+            });
+        }
+
+        // Generar la factura
+        const bill = new Bill({
+            user: userId,
+            client: Client,
+            products: cart.products.map(item => ({
+                product: item.product._id, // Asegúrate de incluir el ID del producto aquí
+                productName: item.product.name,
+                price: item.product.price,
+                quantity: item.quantity
+            })),
+            total: cart.products.reduce((acc, item) => acc + (item.product.price * item.quantity), 0),
+            status: "pending"  // Puedes agregar el estado como "pendiente" o algo similar si lo deseas
+        });
+
+        // Guardar la factura
+        await bill.save();
+
+        // Vaciar el carrito después de generar la factura
+        cart.status = "inactive"; // O "completed", según la lógica de tu negocio
+        await cart.save();
+
+        res.status(200).json({
+            success: true,
+            msg: "Bill generated successfully",
+            bill
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: "Ups, Something went wrong while generating the bill",
             error: error.message
         });
     }
