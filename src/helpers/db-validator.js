@@ -1,5 +1,7 @@
 import User from '../users/user.model.js';
 import Role from '../role/role.model.js';
+import Category from "../category/category.model.js"; 
+import Product from "../products/product.model.js";
 import { Types } from "mongoose";
 
 export const esRoleValido = async (role = ' ') => {
@@ -27,8 +29,6 @@ export const existeUsuarioById = async (id = '') => {
     }
 }
 
-import Category from "../category/category.model.js";  // Asegúrate de importarlo
-
 export const existCategory = async (id = '') => {
     if (!Types.ObjectId.isValid(id)) {
         throw new Error(`The ID ${id} is not a valid ObjectId`);
@@ -43,5 +43,12 @@ export const existCategory = async (id = '') => {
 export const esObjectIdValido = async (id) => {
     if (!Types.ObjectId.isValid(id)) {
         throw new Error(`The ID ${id} is not a valid ObjectId`);
+    }
+};
+
+export const productExists = async (id) => {
+    const product = await Product.findById(id);
+    if (!product || !product.status) {
+        throw new Error(`The product with ID ${id} does not exist or is inactive.`);
     }
 };
