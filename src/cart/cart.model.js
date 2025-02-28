@@ -24,7 +24,7 @@ const CartSchema = new Schema(
         ],
         status: {
             type: String,
-            enum: ["active", "Already paid"],
+            enum: ["active", "paid"],
             default: "active"
         }
     },

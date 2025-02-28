@@ -1,73 +1,51 @@
-import Bill from "../bill/bill.model.js";
-import Cart from "../cart/cart.model.js";
-import User from "../users/user.model.js";
+import User from "../users/user.model.js"
+import Bill from "../bill/bill.model.js"
 
-export const completePurchase = async (req, res) => {
+export const getBillHistory = async (req, res) => {
     try {
-        const userId = req.user._id;
-        const { billId } = req.params;
-        const { confirmWord } = req.body; // Cambiado de "password" a "confirmWord"
-
-        if (!confirmWord) {
-            return res.status(400).json({
-                success: false,
-                msg: "Confirm word is required to complete the purchase"
-            });
-        }
-
-        if (confirmWord !== "CONFIRMAR") {
+        if (!req.user) {
             return res.status(401).json({
                 success: false,
-                msg: "Incorrect confirm word"
+                msg: "User is not authenticated"
             });
         }
+
+        const userId = req.user._id;
 
         const user = await User.findById(userId);
-        if (!user) {
+        const bills = await Bill.find({ user: userId }).populate("products.product");
+
+        if (!bills.length) {
             return res.status(404).json({
                 success: false,
-                msg: "User not found"
+                msg: "No purchase history found"
             });
         }
 
-        const bill = await Bill.findOne({ _id: billId, user: userId });
-        if (!bill) {
-            return res.status(404).json({
-                success: false,
-                msg: "Bill not found or does not belong to the user"
-            });
-        }
-
-        if (bill.status === "paid") {
-            return res.status(400).json({
-                success: false,
-                msg: "This bill has already been paid"
-            });
-        }
-
-        // Marcar la factura como pagada
-        bill.status = "paid";
-        await bill.save();
-
-        // Vaciar el carrito y crear un nuevo carrito si es necesario
-        await Cart.findOneAndUpdate({ user: userId, status: "active" }, { status: "inactive" });
-
-        // Crear un nuevo carrito (si el usuario desea agregar nuevos productos)
-        const newCart = new Cart({ user: userId, status: "active", products: [] });
-        await newCart.save();
+        const history = bills.map(bill => ({
+            client: {
+                id: user._id,
+                name: user.name
+            },
+            products: bill.products.map(item => ({
+                id: item.product._id,
+                name: item.product.name,
+                price: item.price,
+                quantity: item.quantity,
+                total: bill.total
+            }))
+        }));
 
         res.status(200).json({
             success: true,
-            msg: "Purchase completed successfully, new cart created",
-            bill,
-            newCart
+            history
         });
+
     } catch (error) {
         res.status(500).json({
             success: false,
-            msg: "Something went wrong while completing the purchase",
+            msg: "Ups, something went wrong while fetching purchase history",
             error: error.message
         });
     }
 };
-
