@@ -1,8 +1,7 @@
-import { response, request } from "express";
 import { hash, verify } from 'argon2';
 import User from "./user.model.js";
 
-export const getUsers = async (req = request, res = response) => {
+export const getUsers = async (req, res) => {
     try {
         const { limite = 10 , desde = 0 } = req.query;
         const query = { status: true };
@@ -56,7 +55,7 @@ export const getUserById = async (req, res) => {
     }
 }
 
-export const updateUser = async (req, res = response) => {
+export const updateUser = async (req, res) => {
     try {
         
         if (!req.user) {
@@ -131,7 +130,7 @@ export const updateUser = async (req, res = response) => {
     }
 };
 
-export const deleteUser = async (req = request, res = response) => {
+export const deleteUser = async (req, res) => {
     try {
         if (!req.user) {
             return res.status(401).json({
@@ -185,6 +184,45 @@ export const deleteUser = async (req = request, res = response) => {
             success: false,
             msg: "Something went wrong trying to delete the user",
             error: error.message || error
+        });
+    }
+};
+
+export const updateClient = async (req, res) => {
+    try {
+
+        const { id } = req.params; 
+        const { name, email, role } = req.body;
+
+        const updatedClient = await User.findByIdAndUpdate(
+            id,
+            { name, email, role },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedClient) {
+            return res.status(404).json({
+                success: false,
+                msg: "Client not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            msg: "Client updated successfully",
+            client: {
+                id: updatedClient._id,
+                name: updatedClient.name,
+                email: updatedClient.email,
+                role: updatedClient.role
+            }
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: "Ups, something went wrong while updating the client",
+            error: error.message
         });
     }
 };
