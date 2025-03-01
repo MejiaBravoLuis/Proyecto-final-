@@ -191,11 +191,11 @@ export const deleteUser = async (req, res) => {
 export const updateClient = async (req, res) => {
     try {
 
-        const { id } = req.params; 
+        const { userId } = req.params; 
         const { name, email, role } = req.body;
 
         const updatedClient = await User.findByIdAndUpdate(
-            id,
+            userId,
             { name, email, role },
             { new: true, runValidators: true }
         );
