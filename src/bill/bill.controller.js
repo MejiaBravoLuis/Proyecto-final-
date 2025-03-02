@@ -1,5 +1,6 @@
 import User from "../users/user.model.js"
 import Bill from "../bill/bill.model.js"
+import Product from "../products/product.model.js"
 
 export const getBillHistory = async (req, res) => {
     try {
@@ -101,5 +102,47 @@ export const getUserBills = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({ success: false, msg: "Error getting user bills", error: error.message });
+    }
+};
+
+export const updateBill = async (req, res) => {
+    try {
+        const { billId } = req.params;
+        const { productId, quantity } = req.body;
+
+        const bill = await Bill.findById(billId);
+        if (!bill) {
+            return res.status(404).json({ success: false, msg: "Bill not found" });
+        }
+
+        const productIndex = bill.products.findIndex(item => item.product.toString() === productId);
+        if (productIndex === -1) {
+            return res.status(404).json({ success: false, msg: "Product not found in bill" });
+        }
+
+        const product = await Product.findById(productId);
+        if (!product) {
+            return res.status(404).json({ success: false, msg: "Product not found" });
+        }
+
+        bill.products[productIndex].quantity = quantity;
+        bill.products[productIndex].price = product.price; 
+
+        bill.total = bill.products.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+        await bill.save();
+
+        res.status(200).json({
+            success: true,
+            msg: "Bill updated successfully",
+            updatedBill: bill
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: "Error updating bill",
+            error: error.message
+        });
     }
 };

@@ -52,3 +52,16 @@ export const productExists = async (id) => {
         throw new Error(`The product with ID ${id} does not exist or is inactive.`);
     }
 };
+
+export const stockProduct = async (id = '', quantity = 1) => {
+
+    const product = await Product.findById(id);
+    if (!product) {
+        throw new Error(`Product with ID "${id}" does not exist.`);
+    }
+
+    if (product.stock < quantity) {
+        throw new Error(`Insufficient stock for product "${product.name}". Available: ${product.stock}, Requested: ${quantity}`);
+    }
+    
+};
