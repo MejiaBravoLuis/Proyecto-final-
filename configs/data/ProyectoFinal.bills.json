@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "67c5c08647c8aa17a368eaa4"
+  },
+  "user": {
+    "$oid": "67c5ba23edeefdb5e8e1f77c"
+  },
+  "products": [
+    {
+      "product": {
+        "$oid": "67c5b168896fbda458fe196c"
+      },
+      "quantity": 2,
+      "price": 11.99,
+      "_id": {
+        "$oid": "67c5c08647c8aa17a368eaa5"
+      }
+    }
+  ],
+  "total": 23.98,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2025-03-03T14:45:26.032Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:59:25.313Z"
+  }
+}]

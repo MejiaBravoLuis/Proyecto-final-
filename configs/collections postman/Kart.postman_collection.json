@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "894e4484-04f4-4d8f-88ee-703ee5de2694",
+		"name": "Kart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37533644"
+	},
+	"item": [
+		{
+			"name": "Añadir al carrito",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YmEyM2VkZWVmZGI1ZThlMWY3N2MiLCJpYXQiOjE3NDEwMTE5ODIsImV4cCI6MTc0MTAxNTU4Mn0.ta0E6xB-yP3_T7mTGNqlbU4U7upEcIgBC4r5PfwqnuQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": \"67c5b168896fbda458fe196c\",\r\n    \"cant\": \"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/cart/addToMyCart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"cart",
+						"addToMyCart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar mi carrito",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YmEyM2VkZWVmZGI1ZThlMWY3N2MiLCJpYXQiOjE3NDEwMTIxMDMsImV4cCI6MTc0MTAxNTcwM30.K4tF7TF6q0v8w0kEdFJFg84fMcxgbVFZR9v5K_4O2R8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/cart/getMyCart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"cart",
+						"getMyCart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar producto del carrito",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YmEyM2VkZWVmZGI1ZThlMWY3N2MiLCJpYXQiOjE3NDEwMTIxMDMsImV4cCI6MTc0MTAxNTcwM30.K4tF7TF6q0v8w0kEdFJFg84fMcxgbVFZR9v5K_4O2R8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": \"67c5b168896fbda458fe196c\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/cart/removeProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"cart",
+						"removeProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Limpiar Carrito",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YmEyM2VkZWVmZGI1ZThlMWY3N2MiLCJpYXQiOjE3NDEwMTIzMzYsImV4cCI6MTc0MTAxNTkzNn0.2AcoDpE9gSqQhPenpEtQ7qPJn2I2QjcjAK2aEOgn6UE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/cart/clear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"cart",
+						"clear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar mi carrito",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YmEyM2VkZWVmZGI1ZThlMWY3N2MiLCJpYXQiOjE3NDEwMTI2MzIsImV4cCI6MTc0MTAxNjIzMn0.gEblCazmIBazdLGbzShVz5J9oIvLL6jFSctBX5-bxcw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cant\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/cart/update/67c5b168896fbda458fe196c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"cart",
+						"update",
+						"67c5b168896fbda458fe196c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generar mi factura",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YmEyM2VkZWVmZGI1ZThlMWY3N2MiLCJpYXQiOjE3NDEwMTI2MzIsImV4cCI6MTc0MTAxNjIzMn0.gEblCazmIBazdLGbzShVz5J9oIvLL6jFSctBX5-bxcw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/bill/getMyBill/67c5bc76edeefdb5e8e1f787",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"bill",
+						"getMyBill",
+						"67c5bc76edeefdb5e8e1f787"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

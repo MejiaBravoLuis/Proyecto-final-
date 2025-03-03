@@ -90,6 +90,14 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Editar categoria",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }

@@ -1,26 +1,39 @@
 [{
   "_id": {
-    "$oid": "67bc8cf0307cf90925d0e92c"
+    "$oid": "67c5ae8e896fbda458fe1953"
   },
   "name": "pets (default category) 🐕",
   "status": true,
   "createdAt": {
-    "$date": "2025-02-24T15:14:56.256Z"
+    "$date": "2025-03-03T13:28:46.107Z"
   },
   "updatedAt": {
-    "$date": "2025-02-24T15:14:56.256Z"
+    "$date": "2025-03-03T13:28:46.107Z"
   }
 },
 {
   "_id": {
-    "$oid": "67bca229237262d190b67cd5"
+    "$oid": "67c5b153896fbda458fe1965"
   },
-  "name": "YUP",
-  "status": false,
+  "name": "Pets food edited",
+  "status": true,
   "createdAt": {
-    "$date": "2025-02-24T16:45:29.622Z"
+    "$date": "2025-03-03T13:40:35.007Z"
   },
   "updatedAt": {
-    "$date": "2025-02-24T17:12:53.978Z"
+    "$date": "2025-03-03T13:59:45.812Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5b281896fbda458fe197d"
+  },
+  "name": "Toys",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T13:45:37.880Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:45:37.880Z"
   }
 }]
