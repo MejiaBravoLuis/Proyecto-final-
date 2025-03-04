@@ -98,13 +98,13 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2EwZjNiYTQ4Njg1MjcwY2ZkYWQiLCJpYXQiOjE3NDA1MDI2MTMsImV4cCI6MTc0MDUwNjIxM30.p1OqDSzyhpXjiWIDOTlTW6KglI3NusWNWUDvLS9SzA0",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2EwZjNiYTQ4Njg1MjcwY2ZkYWQiLCJpYXQiOjE3NDA1ODgwNDIsImV4cCI6MTc0MDU5MTY0Mn0.h2pNN8O_jj0cch1xGHus0BX79hbVaH1HXkghxB8ljv8",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Biscuit (Edit)\",\r\n    \"description\": \"A pets product (Edit)\",\r\n    \"price\": \"11.99\",\r\n    \"stock\": \"10\",\r\n    \"category\": \"67bded49972c96589aef00e4\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Lego\",\r\n    \"description\": \"A set of lego\",\r\n    \"price\": \"11.99\",\r\n    \"stock\": \"10\",\r\n    \"category\": \"67bf47080b54e3dc5e224c7f\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -112,7 +112,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/ProyectoFinal/v1/product/67bdf52c83dc85afb14746a0",
+					"raw": "http://localhost:3000/ProyectoFinal/v1/product/67bf47620b54e3dc5e224c88",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -122,7 +122,7 @@
 						"ProyectoFinal",
 						"v1",
 						"product",
-						"67bdf52c83dc85afb14746a0"
+						"67bf47620b54e3dc5e224c88"
 					]
 				}
 			},
@@ -152,17 +152,29 @@
 		},
 		{
 			"name": "Buscar producto por nombre o letras",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
 					{
-						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2EwZjNiYTQ4Njg1MjcwY2ZkYWQiLCJpYXQiOjE3NDA1MDI2MTMsImV4cCI6MTc0MDUwNjIxM30.p1OqDSzyhpXjiWIDOTlTW6KglI3NusWNWUDvLS9SzA0",
+						"key": "",
+						"value": "",
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:3000/ProyectoFinal/v1/product/search/bis",
+					"raw": "http://localhost:3000/ProyectoFinal/v1/product/search/lego",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -173,7 +185,96 @@
 						"v1",
 						"product",
 						"search",
-						"bis"
+						"lego"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar producto más vendido",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2EwZjNiYTQ4Njg1MjcwY2ZkYWQiLCJpYXQiOjE3NDA1ODgwNDIsImV4cCI6MTc0MDU5MTY0Mn0.h2pNN8O_jj0cch1xGHus0BX79hbVaH1HXkghxB8ljv8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/product/bestSold",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"product",
+						"bestSold"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir stock a",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2EwZjNiYTQ4Njg1MjcwY2ZkYWQiLCJpYXQiOjE3NDA1ODgwNDIsImV4cCI6MTc0MDU5MTY0Mn0.h2pNN8O_jj0cch1xGHus0BX79hbVaH1HXkghxB8ljv8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cant\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/product/addStock/67bf47620b54e3dc5e224c88",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"product",
+						"addStock",
+						"67bf47620b54e3dc5e224c88"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar productos por categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/product/category/67bf47080b54e3dc5e224c7f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"product",
+						"category",
+						"67bf47080b54e3dc5e224c7f"
 					]
 				}
 			},

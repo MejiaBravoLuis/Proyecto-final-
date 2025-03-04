@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Luis Mejia\",\r\n    \"username\": \"lmejia\",\r\n    \"email\": \"mejia@example.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Elmer Santos\",\r\n    \"username\": \"esantos\",\r\n    \"email\": \"santos@example.com\",\r\n    \"password\": \"12345678\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,10 +41,16 @@
 			"name": "Login Client",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"lmejia\",\r\n    \"password\": \"12345678\"\r\n}",
+					"raw": "{\r\n    \"username\": \"esantos\",\r\n    \"password\": \"12345678\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

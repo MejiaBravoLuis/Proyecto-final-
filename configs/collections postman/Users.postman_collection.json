@@ -57,7 +57,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2ExOTNiYTQ4Njg1MjcwY2ZkYjEiLCJpYXQiOjE3NDA0OTE4MTQsImV4cCI6MTc0MDQ5NTQxNH0.kT0JhuHsW_SikCPDVfG1KN-11Y-OYuXSmfoW_dBut7c",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YjBjYTg5NmZiZGE0NThmZTE5NWEiLCJpYXQiOjE3NDEwMTAzMTksImV4cCI6MTc0MTAxMzkxOX0.JZCi5oOmHAB5wC4JXIYssaTaqi67c-6PMMKkGcGxIuw",
 						"type": "text"
 					}
 				],
@@ -94,12 +94,12 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkY2EwZjNiYTQ4Njg1MjcwY2ZkYWQiLCJpYXQiOjE3NDA0OTM4ODgsImV4cCI6MTc0MDQ5NzQ4OH0.2mDuODbINTLaI6hWEH0RNGyov08_pSqhP1gXEazEpjk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YjBjYTg5NmZiZGE0NThmZTE5NWEiLCJpYXQiOjE3NDEwMTEzMTgsImV4cCI6MTc0MTAxNDkxOH0.1qnpjikleSSI-k8RtJN6iRqzVpkIA2xQRGu-kOTPf4M",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/ProyectoFinal/v1/users/delete/67bdca193ba48685270cfdb1",
+					"raw": "http://localhost:3000/ProyectoFinal/v1/users/delete/67c5b0ca896fbda458fe195a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,7 +110,45 @@
 						"v1",
 						"users",
 						"delete",
-						"67bdca193ba48685270cfdb1"
+						"67c5b0ca896fbda458fe195a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar cliente como ADMIN",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWU4ZTg5NmZiZGE0NThmZTE5NTAiLCJpYXQiOjE3NDEwMTA3ODgsImV4cCI6MTc0MTAxNDM4OH0.D_RHlhnsGvpQ6Uoy_TXiDA6xLJeuYrbP9sZUz9sm-zg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"role\": \"CLIENT\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/ProyectoFinal/v1/users/updateClient/67c5b0ca896fbda458fe195a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ProyectoFinal",
+						"v1",
+						"users",
+						"updateClient",
+						"67c5b0ca896fbda458fe195a"
 					]
 				}
 			},

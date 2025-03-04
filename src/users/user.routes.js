@@ -41,12 +41,12 @@ router.delete(
 );
 
 router.put(
-    "/updateClient/:id",
+    "/updateClient/:userId",
     [
         validarJWT,
         tieneRole("ADMIN"),
-        check("id", "No es un ID válido").isMongoId(),
-        check("id").custom(existeUsuarioById),
+        check("userId", "No es un ID válido").isMongoId(),
+        check("userId").custom(existeUsuarioById),
         validarCampos
     ],
     updateClient

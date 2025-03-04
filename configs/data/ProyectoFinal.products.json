@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "67c5b168896fbda458fe196c"
+  },
+  "name": "Lego",
+  "description": "A set of lego",
+  "price": 11.99,
+  "stock": 1,
+  "category": {
+    "$oid": "67c5b281896fbda458fe197d"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T13:40:56.410Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T15:02:47.178Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c5b2cf896fbda458fe1993"
+  },
+  "name": "Biscuit",
+  "description": "A pets product",
+  "price": 10.99,
+  "stock": 30,
+  "category": {
+    "$oid": "67c5b153896fbda458fe1965"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-03T13:46:55.288Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:47:53.573Z"
+  }
+}]

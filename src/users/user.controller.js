@@ -193,7 +193,7 @@ export const updateClient = async (req, res) => {
 
         const { userId } = req.params; 
         const { name, email, role } = req.body;
-
+        console.log('USER ID GOT:' , userId)
         const updatedClient = await User.findByIdAndUpdate(
             userId,
             { name, email, role },
