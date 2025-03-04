@@ -1,4 +1,3 @@
-import { request, response } from "express";
 import Cart from "./cart.model.js";
 import Product from "../products/product.model.js";
 import Bill from "../bill/bill.model.js"

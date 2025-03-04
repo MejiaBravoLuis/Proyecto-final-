@@ -96,7 +96,6 @@ export const updateProduct = async (req = request, res = response) => {
         const { id } = req.params;
         const { category, ...data } = req.body;
 
-        // Si se quiere cambiar la categoría, verificar si existe
         if (category) {
             const categoryExists = await Category.findById(category);
             if (!categoryExists) {
